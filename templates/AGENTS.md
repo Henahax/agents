@@ -8,24 +8,27 @@
 
 **Technologies:**
 
-<!-- e.g. TypeScript, Next.js, PostgreSQL -->
+<!-- e.g. TypeScript, Svelte, PostgreSQL -->
 
-## Project-Specific Instructions
+## Instructions
 
-<!-- Rules and conventions specific to this project. -->
+<!-- Add rules and conventions specific to this project. -->
 
 *
 
 ## Shared Agent Skills
 
-Shared skills are maintained in the central `agents` repository.
+<!-- List only the skills relevant to this project. -->
 
-**Local:** `../agents`
+Shared instructions: `../agents/AGENTS.md`
 
-**GitHub:** `https://github.com/henahax/agents`
+Local repository: `../agents`
+
+Web fallback: `https://github.com/henahax/agents`
 
 Relevant skills:
 
+* `core/caveman`
 * `languages/<language>`
 * `frameworks/<framework>`
 * `tools/<tool>`

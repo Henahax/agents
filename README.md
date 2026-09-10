@@ -30,28 +30,6 @@ agents/
 
 Each project repository should have a small, project-specific `AGENTS.md` that describes the project and points agents towards relevant shared skills.
 
-### Skills
-
-A skill is a reusable capability or set of instructions for a specific technology, workflow, or task.
-
-Each skill lives in its own directory:
-
-```text
-skills/tools/docker/
-├── SKILL.md
-└── references/
-    └── compose.md
-```
-
-`SKILL.md` contains the essential instructions an agent needs.
-
-Skills should be:
-
-* Specific and actionable
-* Reusable across projects
-* Focused on non-obvious knowledge
-* Kept concise
-
 ### References
 
 Detailed information that does not need to be loaded every time belongs in `references/`.
