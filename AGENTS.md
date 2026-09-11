@@ -2,6 +2,7 @@
 
 Use this repository as a shared source of reusable skills and references.
 
+- Write agent Markdown files and documentation in English.
 - Read the consuming project's `AGENTS.md` first.
 - Apply `skills/core/caveman/SKILL.md` by default to keep responses concise.
 - When something important is unclear, ask instead of guessing.
