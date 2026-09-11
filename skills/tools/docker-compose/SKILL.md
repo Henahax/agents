@@ -1,9 +1,9 @@
 ---
-name: docker
+name: docker-compose
 description: Use when creating or reviewing Dockerfiles and Docker Compose files.
 ---
 
-# Docker
+# Docker-Compose
 
 - Start from the service provider's official Docker Compose example when available.
 - Keep secrets and environment-specific values as `${VARIABLE}` placeholders.
