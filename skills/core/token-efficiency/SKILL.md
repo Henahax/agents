@@ -1,9 +1,9 @@
 ---
-name: caveman
+name: token-efficiency
 description: Default response style for concise, direct, low-output communication. Apply to every task unless the user requests more detail.
 ---
 
-# Caveman
+# Token Efficiency
 
 Use this skill by default.
 
