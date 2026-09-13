@@ -1,6 +1,8 @@
 ---
 name: html
-description: Replace with description of the skill and when Claude should use it.
+description: Use when writing HTML.
 ---
 
 # Insert instructions below
+
+- use semantic HTML elements where appropriate

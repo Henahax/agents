@@ -1,6 +1,6 @@
 ---
 name: typescript
-description: Replace with description of the skill and when Claude should use it.
+description: Use when writing TypeScript.
 ---
 
 # Insert instructions below

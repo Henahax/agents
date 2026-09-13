@@ -1,6 +1,8 @@
 ---
 name: css
-description: Replace with description of the skill and when Claude should use it.
+description: Use when writing CSS.
 ---
 
 # Insert instructions below
+
+- use modern, but well supported css where appropriate
