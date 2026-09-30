@@ -23,11 +23,6 @@ Use the current official documentation for version-specific behavior instead of 
 - Address its reported issues and suggestions, then run it again until it returns no issues or suggestions.
 - Follow the Svelte 5 and SvelteKit conventions documented for the project's installed versions.
 
-## Validation
-
-- Match validation effort to the scope and risk of the change. For small, localized edits, prefer a focused check or no additional project-wide command when the change does not warrant one.
-- Run the consuming project's full check, lint, or build scripts for broad, cross-cutting, or higher-risk changes, choosing from the scripts that project actually provides.
-
 ## Playground
 
 - Offer a Svelte Playground link after completing an example when a link would be useful.
