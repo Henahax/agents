@@ -44,11 +44,6 @@ When passing rune-containing code inline through a shell, escape `$` to prevent 
 
 For detailed guidance, see [reactivity](references/svelte-reactivity.md), [attachments](references/attach.md), [function bindings](references/bind.md), [keyed each blocks](references/each.md), [snippets](references/snippet.md), [render tags](references/render.md), [$inspect](references/inspect.md), [await expressions](references/await-expressions.md), and [hydratable values](references/hydratable.md).
 
-## Validation
-
-- Match validation effort to the scope and risk of the change. For small, localized edits, prefer a focused check or no additional project-wide command when the change does not warrant one.
-- Run the consuming project's full check, lint, or build scripts for broad, cross-cutting, or higher-risk changes, choosing from the scripts that project actually provides.
-
 ## Playground
 
 - Offer a Svelte Playground link after completing an example when a link would be useful.

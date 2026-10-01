@@ -11,6 +11,8 @@ Use this repository as a shared source of reusable skills and references.
 - Reuse existing imports, helpers, and abstractions where appropriate.
 - Follow the existing style and patterns of the project.
 - Avoid unrelated refactoring.
+- Match validation effort to the scope and risk of each change. When a project is running with a development server, use its feedback for small, localized edits; do not routinely run a full production build after every change.
+- Prefer focused checks for localized changes. Run full checks or production builds for broad or higher-risk changes, when a focused check indicates they are needed, or when the user requests them.
 - Use the linked skills from this repository when they match the task.
 - Keep project-specific instructions in the project's `AGENTS.md`.
 - Do not copy shared skills into project repositories.
