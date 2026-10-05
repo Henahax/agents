@@ -5,19 +5,11 @@ description: Use when building, reviewing, or debugging Svelte 5 components and 
 
 # Svelte 5
 
-Use this skill for component-level Svelte work, including Svelte 5 reactivity, runes, bindings, events, snippets, and attachments. For routing and application-level behavior, use the separate [SvelteKit skill](../sveltekit/SKILL.md).
+Use for Svelte components and modules (runes, bindings, events, snippets, attachments). For routing or application behavior, use the [SvelteKit skill](../sveltekit/SKILL.md).
 
 ## Documentation
 
-When the Svelte MCP server is available and the task involves Svelte components or modules:
-
-1. Call `list-sections` first to discover the available documentation.
-2. Review section titles and `use_cases` to identify all documentation relevant to the task.
-3. Call `get-documentation` for those sections before implementing or advising.
-
-Use the current official documentation for version-specific behavior instead of relying on memory.
-
-If the MCP server is unavailable, use the `@sveltejs/mcp` CLI:
+For component/module work, use the current official docs, especially for version-sensitive or experimental APIs. If the Svelte MCP server is available, call `list-sections`, choose relevant sections by title and `use_cases`, then call `get-documentation` before implementing or advising. Otherwise use the CLI:
 
 ```sh
 npx @sveltejs/mcp list-sections
@@ -25,27 +17,20 @@ npx @sveltejs/mcp get-documentation "<section1>,<section2>"
 npx @sveltejs/mcp svelte-autofixer ./src/lib/Component.svelte
 ```
 
-When passing rune-containing code inline through a shell, escape `$` to prevent variable substitution.
+Escape `$` when passing rune-containing code inline through a shell.
 
-## Svelte code changes
+## Changes and Validation
 
-- When writing or modifying Svelte code, run `svelte-autofixer` before presenting the result.
-- Address its reported issues and suggestions, then run it again until it returns no issues or suggestions.
-- Follow the Svelte conventions documented for the project's installed version.
+- For Svelte code changes, run `svelte-autofixer`; address its findings and rerun until clean. Follow the installed Svelte version's conventions.
+- Match checks to the changed surface; do not run a full check just because a file ends in `.svelte`. For CSS-only changes, skip full TypeScript/Svelte checks unless a compiler or runtime concern exists; prefer focused visual validation. For script, markup, component API, or TypeScript changes, run the project's focused check when it covers the changed code.
 
-## Svelte 5 practices
+## Svelte 5 Practices
 
-- Use runes for new code. Use `$state` only for values that need to update the UI or other reactive computations; consider `$state.raw` for large values that are reassigned rather than mutated.
-- Use `$derived` for computations. Treat `$effect` as an escape hatch for synchronizing with external systems, and avoid changing state inside effects when a derived value or event handler is appropriate.
-- Treat props as changeable; use `$derived` for values that depend on props.
-- Use event attributes such as `onclick`, keyed `{#each}` blocks with stable unique keys, and snippets with `{@render}` rather than legacy event directives, unkeyed lists, or slots in new code.
-- Prefer attachments for DOM setup and `createSubscriber` for integrating external event sources with reactivity. Use context for state shared across a component subtree.
-- Check the installed Svelte version and current documentation before using version-sensitive or experimental features, including async components.
+- Use runes: `$state` for reactive UI state (`$state.raw` for large reassigned, unmutated values), `$derived` for computations, and `$effect` mainly for external synchronization. Derive from props because they can change.
+- Prefer `onclick`, keyed `{#each}`, and snippets over legacy events, unkeyed lists, and slots. Use attachments or `createSubscriber` for DOM/external sources, and context for subtree state.
 
-For detailed guidance, see [reactivity](references/svelte-reactivity.md), [attachments](references/attach.md), [function bindings](references/bind.md), [keyed each blocks](references/each.md), [snippets](references/snippet.md), [render tags](references/render.md), [$inspect](references/inspect.md), [await expressions](references/await-expressions.md), and [hydratable values](references/hydratable.md).
+Reference guides: [reactivity](references/svelte-reactivity.md), [attachments](references/attach.md), [function bindings](references/bind.md), [keyed each](references/each.md), [snippets](references/snippet.md), [render](references/render.md), [$inspect](references/inspect.md), [await](references/await-expressions.md), [hydratable values](references/hydratable.md).
 
 ## Playground
 
-- Offer a Svelte Playground link after completing an example when a link would be useful.
-- Generate one only after the user confirms.
-- Do not generate Playground links for code written to files in the user's project.
+Offer a Playground link for useful examples only after confirmation; never for code written to project files.
