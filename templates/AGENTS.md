@@ -18,7 +18,7 @@
 
 ## Shared Agent Skills
 
-<!-- List only the skills relevant to this project. -->
+<!-- Keep only applicable skills; replace placeholders with exact category/name entries. -->
 
 Shared instructions: `../agents/AGENTS.md`
 
@@ -33,4 +33,4 @@ Relevant skills:
 * `frameworks/<framework>`
 * `tools/<tool>`
 
-Use the shared skills where applicable. Keep project-specific instructions in this file.
+Resolve each entry as `../agents/skills/<category>/<name>/SKILL.md`. If the local repository is unavailable, use the web fallback. Load a listed skill when its description matches the task.

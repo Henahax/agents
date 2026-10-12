@@ -8,18 +8,16 @@ The goal is to keep agent knowledge **consistent, reusable, and independent from
 
 ```text
 agents/
-├── AGENTS.md              # Instructions for working with this repository
-├── skills/                # Reusable agent skills
-│   ├── core/              # General engineering workflows
-│   ├── languages/         # Language-specific knowledge
-│   ├── frameworks/        # Framework-specific knowledge
-│   ├── tools/             # Tools and infrastructure
-│   ├── databases/         # Database-specific knowledge
-│   └── domains/           # Domain-specific knowledge
-├── references/            # Shared reference material
-├── templates/             # Templates for integrating this repo into projects
-├── scripts/               # Automation and validation
-└── docs/                  # Documentation
+├── AGENTS.md
+├── README.md
+├── skills/
+│   ├── core/
+│   ├── frameworks/
+│   ├── languages/
+│   └── tools/
+└── templates/
+    ├── AGENTS.md
+    └── README.md
 ```
 
 ## Concepts
@@ -32,7 +30,7 @@ Each project repository should have a small, project-specific `AGENTS.md` that d
 
 ### References
 
-Detailed information that does not need to be loaded every time belongs in `references/`.
+Detailed information that does not need to be loaded every time belongs in a skill's `references/` directory.
 
 This enables **progressive disclosure**: agents start with the essential instructions and load additional details only when needed.
 
@@ -52,29 +50,20 @@ The central repository should contain **reusable knowledge only**.
 
 The `templates/` directory contains files that can be copied or adapted when integrating the central repository into another project.
 
-For example:
-
-```text
-templates/
-├── AGENTS.md
-└── skill/
-    └── SKILL.md
-```
-
 The project `AGENTS.md` should remain lightweight and reference the relevant shared skills instead of duplicating their content.
 
 ## Example
 
-A general Docker convention belongs in:
+Dockerfile guidance belongs in:
 
 ```text
 skills/tools/docker/SKILL.md
 ```
 
-Detailed Docker Compose conventions can live in:
+Docker Compose guidance belongs in:
 
 ```text
-skills/tools/docker/references/compose.md
+skills/tools/docker-compose/SKILL.md
 ```
 
 A project-specific Docker exception belongs in:
@@ -97,14 +86,11 @@ my-project/AGENTS.md
 Add reusable knowledge to the appropriate category:
 
 ```text
-skills/<category>/<skill-name>/
-├── SKILL.md
-└── references/       # optional
+skills/<category>/<skill-name>/SKILL.md
+skills/<category>/<skill-name>/references/  # optional
 ```
 
 Keep each skill focused on one clear purpose.
-
-Project-specific instructions should **not** be added here. Put them in the project's own `AGENTS.md`.
 
 ## Integration
 
