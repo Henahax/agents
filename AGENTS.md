@@ -5,7 +5,7 @@ Use this repository as a shared source of reusable skills and references.
 ## Shared guidance
 
 - Write agent Markdown and documentation in English.
-- Keep shared instructions and documentation concise, precise, and non-redundant.
+- Keep shared instructions concise and precise. Before finishing instruction or documentation edits, check related files for duplicate or conflicting guidance; keep one canonical rule and link to it where needed.
 
 ## Using shared skills
 
