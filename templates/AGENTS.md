@@ -28,7 +28,7 @@ Web fallback: `https://github.com/henahax/agents`
 
 Relevant skills:
 
-* `core/token-efficiency`
+* `core/concise-responses`
 * `languages/<language>`
 * `frameworks/<framework>`
 * `tools/<tool>`

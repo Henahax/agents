@@ -10,7 +10,7 @@ Use this repository as a shared source of reusable skills and references.
 ## Using shared skills
 
 - Read the consuming project's `AGENTS.md` first; its project-specific rules take precedence.
-- Apply `skills/core/token-efficiency/SKILL.md` by default.
+- Apply `skills/core/concise-responses/SKILL.md` by default.
 - Load a skill when its description matches the task; consult its references only as needed.
 - Reference only relevant shared skills in the consuming project's `AGENTS.md`. Do not copy shared skills into project repositories.
 
