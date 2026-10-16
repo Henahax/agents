@@ -22,6 +22,7 @@ Escape `$` when passing rune-containing code inline through a shell.
 ## Changes and Validation
 
 - Use `svelte-autofixer` when it is useful for a non-trivial Svelte change or to investigate a concrete issue; it is not required for every small markup or styling edit. Address relevant findings if you run it.
+- After updating Svelte, SvelteKit, or ESLint-related packages, run the consuming project lint script as well as its type-check script; `svelte-check` does not execute ESLint, and recommended plugin rules can change between releases.
 - Match checks to the changed surface; do not run a full check just because a file ends in `.svelte`. For CSS-only changes, skip full TypeScript/Svelte checks unless a compiler or runtime concern exists; prefer focused visual validation. For script, markup, component API, or TypeScript changes, run the project's focused check when it covers the changed code.
 
 ## Svelte 5 Practices
