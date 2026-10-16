@@ -1,99 +1,51 @@
-# Agent Skills & Instructions
+# Agent Playbook
 
-A central, reusable collection of instructions, skills, and reference material for AI coding agents.
-
-The goal is to keep agent knowledge **consistent, reusable, and independent from individual code repositories**.
+A vendor-neutral collection of reusable guidance for AI coding agents. It keeps shared practices in one place while projects retain only their own durable rules.
 
 ## Structure
 
 ```text
 agents/
-├── AGENTS.md
+├── AGENTS.md                 # Short entry point and guidance index
 ├── README.md
-├── skills/
-│   ├── core/
+├── principles/               # General decision-making guidance
+│   ├── coding.md
+│   ├── communication.md
+│   └── validation.md
+├── rules/                    # Concrete guidance by topic
+│   ├── documentation.md
+│   └── validation.md
+├── skills/                   # Task-specific knowledge, loaded when relevant
 │   ├── frameworks/
 │   ├── languages/
 │   └── tools/
-└── templates/
-    ├── AGENTS.md
+└── templates/                # Minimal project integration files
+    ├── project-AGENTS.md
     └── README.md
 ```
 
-## Concepts
+## How to use the playbook
 
-### `AGENTS.md`
+Start with the consuming project's `AGENTS.md`. It points to this repository and contains project-specific rules. Then use the relevant principles, rules, and skills for the task; do not load unrelated guidance.
 
-`AGENTS.md` provides **always-relevant context and instructions**.
+Projects do not need to enumerate shared skills. Skill descriptions indicate when each skill applies. Do not copy shared guidance into project repositories.
 
-Each project repository should have a small, project-specific `AGENTS.md` that describes the project and points agents towards relevant shared skills.
+## What belongs where
 
-### References
+- **Principles** guide decisions when context or tradeoffs matter.
+- **Rules** state concrete expected actions or constraints, including any conditions, grouped by topic.
+- **Skills** provide focused knowledge or workflows that apply to particular tasks or technologies. Each skill lives in `skills/<category>/<name>/SKILL.md` and may include supporting references.
+- **Project `AGENTS.md`** contains only durable, project-specific context or constraints that are not already clear from the repository.
 
-Detailed information that does not need to be loaded every time belongs in a skill's `references/` directory.
+Keep the root `AGENTS.md` short and use it as an index. Group related guidance by topic; a principle may explain the intent behind a rule. Add a document only when it captures reusable guidance that does not fit an existing one. Keep tool-specific setup or syntax out of shared guidance; add a small adapter only when a real tool requires it.
 
-This enables **progressive disclosure**: agents start with the essential instructions and load additional details only when needed.
+## Adding a skill
 
-### Project-specific rules
-
-Project-specific knowledge belongs in the project's own `AGENTS.md`, for example:
-
-* Project architecture
-* Local conventions
-* Development commands
-* Project-specific exceptions
-* Repository-specific decisions
-
-The central repository should contain **reusable knowledge only**.
-
-## Templates
-
-The `templates/` directory contains files that can be copied or adapted when integrating the central repository into another project.
-
-The project `AGENTS.md` should remain lightweight and reference the relevant shared skills instead of duplicating their content.
-
-## Example
-
-Dockerfile guidance belongs in:
-
-```text
-skills/tools/docker/SKILL.md
-```
-
-Docker Compose guidance belongs in:
-
-```text
-skills/tools/docker-compose/SKILL.md
-```
-
-A project-specific Docker exception belongs in:
-
-```text
-my-project/AGENTS.md
-```
-
-## Design Principles
-
-1. **Single source of truth** — avoid duplicating shared agent instructions.
-2. **Progressive disclosure** — load only the knowledge needed for the current task.
-3. **Reusable over project-specific** — shared knowledge must be portable across projects.
-4. **Concise instructions** — optimize for signal, not documentation volume.
-5. **Clear ownership** — put each piece of knowledge in the appropriate location.
-6. **Avoid skill sprawl** — create skills for meaningful capabilities, workflows, or technology-specific knowledge.
-
-## Adding a Skill
-
-Add reusable knowledge to the appropriate category:
+Add a focused skill under the relevant category:
 
 ```text
 skills/<category>/<skill-name>/SKILL.md
 skills/<category>/<skill-name>/references/  # optional
 ```
 
-Keep each skill focused on one clear purpose.
-
-## Integration
-
-Individual repositories should keep their local agent configuration minimal and consume shared knowledge from this repository.
-
-The exact integration mechanism may depend on the coding agent being used, but this repository remains the **single source of truth** for shared skills and conventions.
+Keep skill descriptions short and clear about when the skill applies. Consult supporting references only as needed.

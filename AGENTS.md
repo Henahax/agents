@@ -1,21 +1,14 @@
-# Agent Instructions
+# Shared Agent Guidance
 
-Use this repository as a shared source of reusable skills and references.
+This repository contains reusable principles, rules, and skills. Follow the consuming project's instructions first.
 
-## Shared guidance
+## Load guidance as needed
 
-- Write agent Markdown and documentation in English.
-- Keep shared instructions concise and precise. Before finishing instruction or documentation edits, check related files for duplicate or conflicting guidance; keep one canonical rule and link to it where needed.
+- Use [coding principles](principles/coding.md) for general implementation decisions.
+- Apply [communication principles](principles/communication.md) by default, unless the user requests a different level of detail or format.
+- Use the [validation principle](principles/validation.md) to choose validation proportionate to the change.
+- Use [documentation rules](rules/documentation.md) when editing agent or project documentation.
+- Use [validation rules](rules/validation.md) for concrete validation guidance after choosing the appropriate scope.
+- Load skills only when their descriptions match the task; consult references only as needed.
 
-## Using shared skills
-
-- Read the consuming project's `AGENTS.md` first; its project-specific rules take precedence.
-- Apply `skills/core/concise-responses/SKILL.md` by default.
-- Load a skill when its description matches the task; consult its references only as needed.
-- Reference only relevant shared skills in the consuming project's `AGENTS.md`. Do not copy shared skills into project repositories.
-
-## Changes and validation
-
-- Ask instead of guessing when important details are unclear; state uncertainty early.
-- Prefer small, precise changes that follow the project's existing style and reuse its helpers and abstractions. Avoid unrelated refactoring.
-- Match validation to the change's scope and risk. Prefer focused checks for localized changes; run full checks or production builds for broad or higher-risk changes, when focused checks indicate they are needed, or when requested. Use a running development server for feedback on small edits.
+Do not copy shared guidance into consuming projects or maintain per-project skill lists.
