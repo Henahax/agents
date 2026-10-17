@@ -26,7 +26,7 @@ agents/
 
 ## How to use the playbook
 
-Start with the consuming project's `AGENTS.md`. It points to this repository and contains project-specific rules. Then use the relevant principles, rules, and skills for the task; do not load unrelated guidance.
+Start with the consuming project's `AGENTS.md`. It points to this repository and contains project-specific rules. For code tasks, use the skill index in the shared `AGENTS.md` to identify and load matching skills, along with relevant principles and rules. Do not load unrelated guidance.
 
 Projects do not need to enumerate shared skills. Skill descriptions indicate when each skill applies. Do not copy shared guidance into project repositories.
 

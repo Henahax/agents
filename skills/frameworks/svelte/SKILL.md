@@ -27,6 +27,7 @@ Escape `$` when passing rune-containing code inline through a shell.
 
 ## Svelte 5 Practices
 
+- Type component props on the destructuring declaration (`let { value }: Props = $props();`); `$props()` has no TypeScript type parameters. Do not write `$props<Props>()`.
 - Use runes: `$state` for reactive UI state (`$state.raw` for large reassigned, unmutated values), `$derived` for computations, and `$effect` mainly for external synchronization. Derive from props because they can change.
 - Prefer `onclick`, keyed `{#each}`, and snippets over legacy events, unkeyed lists, and slots. Use attachments or `createSubscriber` for DOM/external sources, and context for subtree state.
 
@@ -35,3 +36,4 @@ Reference guides: [reactivity](references/svelte-reactivity.md), [attachments](r
 ## Playground
 
 Offer a Playground link for useful examples only after confirmation; never for code written to project files.
+
