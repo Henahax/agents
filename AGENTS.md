@@ -1,14 +1,13 @@
 # Shared Agent Guidance
 
-This repository contains reusable principles, rules, and skills. Follow the consuming project's instructions first.
+This repository contains reusable rules and skills. Follow the consuming project's instructions first.
 
 ## Load guidance as needed
 
-- Use [coding principles](principles/coding.md) for general implementation decisions.
-- Apply [communication principles](principles/communication.md) by default, unless the user requests a different level of detail or format.
-- Use the [validation principle](principles/validation.md) to choose validation proportionate to the change.
+- Use [coding rules](rules/coding.md) for general implementation decisions.
+- Apply [communication rules](rules/communication.md) by default, unless the user requests a different level of detail or format.
+- Use [validation rules](rules/validation.md) to choose validation proportionate to the change and select useful checks.
 - Use [documentation rules](rules/documentation.md) when editing agent or project documentation.
-- Use [validation rules](rules/validation.md) for concrete validation guidance after choosing the appropriate scope.
 - Before code work, identify the stack from manifests, config, files, and task scope. Load every matching skill below and follow its cross-references.
 
 ### Frameworks

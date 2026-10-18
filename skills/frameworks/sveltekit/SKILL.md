@@ -21,6 +21,7 @@ Use the official documentation for the project's installed SvelteKit version. If
 
 - Follow SvelteKit's file and module conventions for routes, layouts, server-only modules, endpoints, and hooks; verify version-sensitive APIs against the installed version.
 - Keep secrets and server-only dependencies in server modules. Do not import private environment variables or server-only code into browser-reachable modules.
+- **Do:** Read a private token in `+page.server.ts`. **Don't:** Import it into `+page.ts` or a component that runs in the browser.
 - Choose universal or server-only load functions based on where data access must happen. Avoid duplicating requests or moving trusted server work into the browser without a reason.
 - Keep request-specific mutable state out of module scope so it cannot leak between server-rendered requests.
 - Preserve progressive enhancement for forms where practical, and validate submitted data on the server regardless of client-side validation.
