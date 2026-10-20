@@ -1,3 +1,5 @@
+# Await Expressions
+
 As of Svelte 5.36, you can use the `await` keyword inside your components in three places where it was previously unavailable:
 
 - at the top level of your component's `<script>`
@@ -6,14 +8,16 @@ As of Svelte 5.36, you can use the `await` keyword inside your components in thr
 
 This feature is currently experimental, and you must opt in by adding the `experimental.async` option wherever you [configure](https://svelte.dev/docs/kit/configuration/llms.txt) Svelte, usually `svelte.config.js`:
 
+For SvelteKit configuration and upgrade guidance, see the [SvelteKit skill](../../sveltekit/SKILL.md).
+
 ```js
 /// file: svelte.config.js
 export default {
- compilerOptions: {
-  experimental: {
-   async: true
-  }
- }
+    compilerOptions: {
+        experimental: {
+            async: true
+        }
+    }
 };
 ```
 
@@ -125,6 +129,8 @@ const { head, body } = +++await+++ render(App);
 
 > [!NOTE] If you're using a framework like SvelteKit, this is done on your behalf.
 
+For preserving server results through hydration, see [hydratable values](hydratable.md).
+
 If a `<svelte:boundary>` with a `pending` snippet is encountered during SSR, that snippet will be rendered while the rest of the content is ignored. All `await` expressions encountered outside boundaries with `pending` snippets will resolve and render their contents prior to `await render(...)` returning.
 
 > [!NOTE] In the future, we plan to add a streaming implementation that renders the content in the background.
@@ -174,7 +180,7 @@ The [`fork(...)`](https://svelte.dev/docs/svelte/svelte/llms.txt#fork) API, adde
 
 {#if open}
  <!-- any async work inside this component will start
-	     as soon as the fork is created -->
+         as soon as the fork is created -->
  <Menu onclose={() => (open = false)} />
 {/if}
 ```

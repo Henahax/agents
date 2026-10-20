@@ -5,7 +5,7 @@ description: Use when building, reviewing, debugging, or upgrading SvelteKit app
 
 # SvelteKit
 
-Use this skill for application-level SvelteKit work: file-based routing, server and universal load functions, form actions, endpoints, hooks, SSR, adapters, and framework configuration. For component-level Svelte patterns, use the shared [Svelte skill](../svelte/SKILL.md). Load both skills when a task changes both application behavior and Svelte components.
+Use this skill for the SvelteKit application layer: file-based routing, server and universal load functions, form actions, endpoints, hooks, SSR, adapters, and framework configuration. Use the shared [Svelte skill](../svelte/SKILL.md) for component-level patterns such as runes, bindings, snippets, and attachments. Load both skills when a task crosses these boundaries.
 
 ## Documentation
 

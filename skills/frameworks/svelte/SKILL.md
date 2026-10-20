@@ -5,7 +5,7 @@ description: Use when building, reviewing, or debugging Svelte 5 components and 
 
 # Svelte 5
 
-Use for Svelte components and modules (runes, bindings, events, snippets, attachments). For routing or application behavior, use the [SvelteKit skill](../sveltekit/SKILL.md).
+Use for Svelte components and modules: runes, bindings, events, snippets, attachments, and component-level reactivity. For routes, loads, actions, hooks, SSR, adapters, or framework configuration, use the [SvelteKit skill](../sveltekit/SKILL.md). Load both when a task changes both component behavior and the SvelteKit application layer.
 
 ## Documentation
 
@@ -31,9 +31,12 @@ Escape `$` when passing rune-containing code inline through a shell.
 - Use runes: `$state` for reactive UI state (`$state.raw` for large reassigned, unmutated values), `$derived` for computations, and `$effect` mainly for external synchronization. Derive from props because they can change.
 - Prefer `onclick`, keyed `{#each}`, and snippets over legacy events, unkeyed lists, and slots. Use attachments or `createSubscriber` for DOM/external sources, and context for subtree state.
 
-Reference guides: [reactivity](references/svelte-reactivity.md), [attachments](references/attach.md), [function bindings](references/bind.md), [keyed each](references/each.md), [snippets](references/snippet.md), [render](references/render.md), [$inspect](references/inspect.md), [await](references/await-expressions.md), [hydratable values](references/hydratable.md).
+## Reference Guides
+
+- Reactivity: [external subscriptions](references/svelte-reactivity.md), [attachments](references/attach.md), [$inspect](references/inspect.md).
+- Component markup: [function bindings](references/bind.md), [keyed each blocks](references/each.md), [snippets](references/snippet.md), [render tags](references/render.md).
+- Async and SSR: [await expressions](references/await-expressions.md), [hydratable values](references/hydratable.md).
 
 ## Playground
 
 Offer a Playground link for useful examples only after confirmation; never for code written to project files.
-

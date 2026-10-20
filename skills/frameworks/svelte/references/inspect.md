@@ -1,3 +1,5 @@
+# $inspect
+
 > [!NOTE] `$inspect` only works during development. In a production build it becomes a noop.
 
 The `$inspect` rune is roughly equivalent to `console.log`, with the exception that it will re-run whenever its argument changes. `$inspect` tracks reactive state deeply, meaning that updating something inside an object or array using fine-grained reactivity will cause it to re-fire:
@@ -7,10 +9,10 @@ The `$inspect` rune is roughly equivalent to `console.log`, with the exception t
 ```svelte
 <!--- file: App.svelte --->
 <script>
-	let count = $state(0);
-	let message = $state('hello');
+ let count = $state(0);
+ let message = $state('hello');
 
-	$inspect(count, message); // will console.log when `count` or `message` change
+ $inspect(count, message); // will console.log when `count` or `message` change
 </script>
 
 <button onclick={() => count++}>Increment</button><input bind:value={message} />
@@ -29,13 +31,13 @@ On updates, a stack trace will be printed, making it easy to find the origin of 
 ```svelte
 <!--- file: App.svelte --->
 <script>
-	let count = $state(0);
+ let count = $state(0);
 
-	$inspect(count).with((type, count) => {
-		if (type === 'update') {
-			debugger; // or `console.trace`, or whatever you want
-		}
-	});
+ $inspect(count).with((type, count) => {
+  if (type === 'update') {
+   debugger; // or `console.trace`, or whatever you want
+  }
+ });
 </script>
 
 <button onclick={() => count++}>Increment</button>
@@ -49,13 +51,13 @@ This rune, added in 5.14, causes the surrounding function to be _traced_ in deve
 
 ```svelte
 <script>
-	import { doSomeWork } from './elsewhere';
+ import { doSomeWork } from './elsewhere';
 
-	$effect(() => {
-		+++// $inspect.trace must be the first statement of a function body+++
-		+++$inspect.trace();+++
-		doSomeWork();
-	});
+ $effect(() => {
+  +++// $inspect.trace must be the first statement of a function body+++
+  +++$inspect.trace();+++
+  doSomeWork();
+ });
 </script>
 ```
 

@@ -1,3 +1,5 @@
+# Attachments
+
 Attachments are functions that run in an [effect](https://svelte.dev/docs/svelte/$effect/llms.txt) when an element is mounted to the DOM or when [state](https://svelte.dev/docs/svelte/$state/llms.txt) read inside the function updates.
 
 Optionally, they can return a function that is called before the attachment re-runs, or after the element is later removed from the DOM.
@@ -8,14 +10,14 @@ Optionally, they can return a function that is called before the attachment re-r
 ```svelte
 <!--- file: App.svelte --->
 <script>
-	/** @type {import('svelte/attachments').Attachment} */
-	function myAttachment(element) {
-		console.log(element.nodeName); // 'DIV'
+ /** @type {import('svelte/attachments').Attachment} */
+ function myAttachment(element) {
+  console.log(element.nodeName); // 'DIV'
 
-		return () => {
-			console.log('cleaning up');
-		};
-	}
+  return () => {
+   console.log('cleaning up');
+  };
+ }
 </script>
 
 <div {@attach myAttachment}>...</div>
@@ -30,20 +32,20 @@ A useful pattern is for a function, such as `tooltip` in this example, to _retur
 ```svelte
 <!--- file: App.svelte --->
 <script>
-	import tippy from 'tippy.js';
+ import tippy from 'tippy.js';
 
-	let content = $state('Hello!');
+ let content = $state('Hello!');
 
-	/**
-	 * @param {string} content
-	 * @returns {import('svelte/attachments').Attachment}
-	 */
-	function tooltip(content) {
-		return (element) => {
-			const tooltip = tippy(element, { content });
-			return tooltip.destroy;
-		};
-	}
+ /**
+  * @param {string} content
+  * @returns {import('svelte/attachments').Attachment}
+  */
+ function tooltip(content) {
+  return (element) => {
+   const tooltip = tippy(element, { content });
+   return tooltip.destroy;
+  };
+ }
 </script>
 
 <input bind:value={content} />
@@ -51,7 +53,7 @@ A useful pattern is for a function, such as `tooltip` in this example, to _retur
 <button {@attach tooltip(content)}>Hover me</button>
 ```
 
-Since the `tooltip(content)` expression runs inside an [effect](https://svelte.dev/docs/svelte/$effect/llms.txt), the attachment will be destroyed and recreated whenever `content` changes. The same thing would happen for any state read _inside_ the attachment function when it first runs. (If this isn't what you want, see [Controlling when attachments re-run](#Controlling-when-attachments-re-run).)
+Since the `tooltip(content)` expression runs inside an [effect](https://svelte.dev/docs/svelte/$effect/llms.txt), the attachment will be destroyed and recreated whenever `content` changes. The same thing would happen for any state read _inside_ the attachment function when it first runs. (If this isn't what you want, see [Controlling when attachments re-run](#controlling-when-attachments-re-run).)
 
 ## Inline attachments
 
@@ -60,16 +62,16 @@ Attachments can also be created inline (demo:
 ```svelte
 <!--- file: App.svelte --->
 <canvas
-	width={32}
-	height={32}
-	{@attach (canvas) => {
-		const context = canvas.getContext('2d');
+ width={32}
+ height={32}
+ {@attach (canvas) => {
+  const context = canvas.getContext('2d');
 
-		$effect(() => {
-			context.fillStyle = color;
-			context.fillRect(0, 0, canvas.width, canvas.height);
-		});
-	}}
+  $effect(() => {
+   context.fillStyle = color;
+   context.fillRect(0, 0, canvas.width, canvas.height);
+  });
+ }}
 ></canvas>
 ```
 
@@ -93,34 +95,34 @@ This allows you to create _wrapper components_ that augment elements (demo:
 ```svelte
 <!--- file: Button.svelte --->
 <script>
-	/** @type {import('svelte/elements').HTMLButtonAttributes} */
-	let { children, ...props } = $props();
+ /** @type {import('svelte/elements').HTMLButtonAttributes} */
+ let { children, ...props } = $props();
 </script>
 
 <!-- `props` includes attachments -->
 <button {...props}>
-	{@render children?.()}
+ {@render children?.()}
 </button>
 ```
 
 ```svelte
 <!--- file: App.svelte --->
 <script>
-	import tippy from 'tippy.js';
-	import Button from './Button.svelte';
+ import tippy from 'tippy.js';
+ import Button from './Button.svelte';
 
-	let content = $state('Hello!');
+ let content = $state('Hello!');
 
-	/**
-	 * @param {string} content
-	 * @returns {import('svelte/attachments').Attachment}
-	 */
-	function tooltip(content) {
-		return (element) => {
-			const tooltip = tippy(element, { content });
-			return tooltip.destroy;
-		};
-	}
+ /**
+  * @param {string} content
+  * @returns {import('svelte/attachments').Attachment}
+  */
+ function tooltip(content) {
+  return (element) => {
+   const tooltip = tippy(element, { content });
+   return tooltip.destroy;
+  };
+ }
 </script>
 
 <input bind:value={content} />
@@ -135,10 +137,10 @@ Attachments, unlike [actions](https://svelte.dev/docs/svelte/use/llms.txt), are 
 ```js
 // @errors: 7006 2304 2552
 function foo(bar) {
-	return (node) => {
-		veryExpensiveSetupWork(node);
-		update(node, bar);
-	};
+ return (node) => {
+  veryExpensiveSetupWork(node);
+  update(node, bar);
+ };
 }
 ```
 
@@ -147,13 +149,13 @@ In the rare case that this is a problem (for example, if `foo` does expensive an
 ```js
 // @errors: 7006 2304 2552
 function foo(+++getBar+++) {
-	return (node) => {
-		veryExpensiveSetupWork(node);
+ return (node) => {
+  veryExpensiveSetupWork(node);
 
-+++		$effect(() => {
-			update(node, getBar());
-		});+++
-	}
++++  $effect(() => {
+   update(node, getBar());
+  });+++
+ }
 }
 ```
 
