@@ -19,6 +19,7 @@ agents/
 │   └── tools/
 └── templates/                # Minimal project integration files
     ├── project-AGENTS.md
+    ├── project-CLAUDE.md
     └── README.md
 ```
 
